@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&display=swap');
+:lang(fa){
+	text-align:	right;
+	direction:	rtl;
+	font-family:	'Markazi Text', cursive;
+}
+:lang(en){
+	text-align:	left;
+	direction:	ltr;
+}
+
+body > header, body > aside, body > footer{
+	background:	hsl(0, 0%, 98%);
+	border:		.5rem solid white;
+	min-height:	5em;
+}
+header #logo{
+	padding:	1rem;
+}
+img{
+	max-width:	100%;
+}
+/* طراحی فرم*/
+/*
+label{
+	width:		5em;
+	display:	inline-block;
+}
+*/
+
+/* شخصی سازی بوت استرپ */
+.btn-primary{
+	/*
+	background-color:	green;
+	background:			hsl(120, 70%, 40%);
+	border:				none;
+	*/
+}
+
+.form-control{
+	/*border-left:	none;
+	border-right:	none;
+	border-top:		none;*/
+}
+.form-check-input{
+	margin:			.3rem .5rem .3rem .5rem;
+	position:		static;
+}
+.card{
+	height:	100%;
+}
+[class *= "col"]{
+	padding: .6rem 0.3rem;	
+}
