@@ -5,7 +5,7 @@ class Alert{
 			session_start();
 	}
 	
-	private function alert($alertMessage, $status){
+	private function makeAlert($alertMessage, $status){
 		switch($status){
 			case 'error':
 				$classPostfix = 'danger';
@@ -27,7 +27,7 @@ class Alert{
 	public function alerts( $alert = '' , $status = 'error'){
 		$result = '';
 		if(  $alert !== '' ){ // اگر خطای جدید داریم
-			$_SESSION['alert'][] =  $this -> alert($alert, $status);
+			$_SESSION['alert'][] =  $this -> makeAlert($alert, $status);
 		}
 		elseif( isset( $_SESSION['alert'] ) ){
 			$result = join("\n", $_SESSION['alert']); // لیست خطاها را برگردان

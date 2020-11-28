@@ -76,7 +76,6 @@ class Table{
 		// رشته‌ای شامل مقادیر رکورد را بر میگرداند
 		$vars = $this -> tableVars();
 		$values = array_values( $vars );
-		var_dump($vars);
 		return "'" . join($sep , $values) . "'";
 	}
 	private function columnValueList( $sep = ', ' ){
@@ -92,9 +91,10 @@ class Table{
 		$coloumnsList	= $this -> coloumnsList();
 		$valuesList		= $this -> valuesList();
 		$sql = "INSERT INTO {$this -> tableName}({$coloumnsList}) 
-			VALUES({$valuesList})";
+				VALUES({$valuesList})";
 		$result = $this -> db -> execute( $sql );
 		$this -> userAlert($result, 'ثبت');
+		// return ?
 	}
 	protected function update(){
 		$columnValueList = $this -> columnValueList();
@@ -112,8 +112,12 @@ class Table{
 			$this -> add();
 	}
 	
-	public function find($where, $order, $limitTo = false , $limitFrom = 0){
-		// select
+	public function find($where = 'TRUE', $order = '', $limitTo = false , $limitFrom = 0){
+		$sql = "SELECT * FROM {$this -> tableName} 
+				WHERE {$where}  AND status != 'deleted'";
+		
+		$table = $this -> db -> execute( $sql );
+		return $table;
 	}
 }
 ?>

@@ -1,6 +1,7 @@
 <?php
 include 'Table.php';
 include 'Product.php';
+include 'User.php';
 // ....
 
 class DB{

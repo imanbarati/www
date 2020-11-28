@@ -2,6 +2,13 @@
 include '../includes/settings.php' ;
 include '../includes/functions.php';
 
+$aaa = new AAA();
+if( ! $aaa -> isAuthenticated() ){
+	$alert -> alerts('ابتدا وارد شوید!');
+	mobtani_redirect('login.php?redirect=addProduct.php');
+}
+// اگر کاربر حق دسترسی به این صفحه را ندارد به صفحه دیگری ریدایرکت شود
+
 if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردازشش کن
 		
 	$imgSrc = '/mobtani/public/assets/images/uploads/image.jpg';
@@ -51,7 +58,10 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			<input type = "text" name = "name" id = "name" class="form-control"><br>
 			
 			<label for = "price">قیمت</label>
-			<input type = "number" name = "price" id = "price" class="form-control" min = "0" step = "1000"> تومان<br>
+			<span class = "input-group">
+				<input type = "number" name = "price" id = "price" class="form-control" min = "0" step = "1000">
+				<span class = "input-group-text">تومان</span>
+			</span><br>
 			<label for = "description">توضیحات </label>
 			<textarea name = "description" id = "description" class="form-control"></textarea><br>
 			<h3>زمان برگزاری</h3>

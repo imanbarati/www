@@ -1,7 +1,6 @@
 <?php
 	include 'includes/settings.php';
 	include 'includes/functions.php';
-	include 'includes/API/DB.php';
 		
 	$db = new DB(false, false); // transaction = false, SelectDB = false	
 	
@@ -39,14 +38,20 @@
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
 	
-	/*
 	$sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.User( 
 				id INT NOT NULL AUTO_INCREMENT,
+				firstname VARCHAR(50),
+				lastname VARCHAR(50),
+				email VARCHAR(50),
+				password VARCHAR(50),
+				state VARCHAR(50),
+				city VARCHAR(50),
+				role VARCHAR(15),
+				imgSrc VARCHAR(255),
 				status VARCHAR(15),
 				PRIMARY KEY(id)
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
-	*/
 	
 	unset( $db );
 ?>
@@ -60,10 +65,7 @@
 		<link rel = "stylesheet" href = "public/assets/css/main.css">
 	</head>
 	<body class = "container">
-		<?php
-		$alerts = mobtani_alerts();
-		echo $alerts;
-		?>
+		<?php echo $alert -> alerts();?>
 		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

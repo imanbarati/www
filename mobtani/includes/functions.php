@@ -1,6 +1,7 @@
 <?php
 include 'API/DB/DB.php';
 include 'API/Alert.php';
+include 'API/AAA.php';
 
 function get_header( $fileName = '' ){
 	if( ! empty($fileName) )
