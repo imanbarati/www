@@ -53,6 +53,17 @@
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
 	
+	$sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.Comment( 
+				id INT NOT NULL AUTO_INCREMENT,
+				Userid INT,
+				Productid INT,
+				message Text,
+				parentid INT,
+				status VARCHAR(15),
+				PRIMARY KEY(id)
+			)ENGINE = INNODB";
+	$db -> execute( $sql );
+	
 	unset( $db );
 ?>
 <!doctype html>

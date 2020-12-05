@@ -36,13 +36,13 @@ class Table{
 	}
 	private function userAlert( $result, $action ){
 		global $alert;
-		if( $result ){
-			$alertMessage = "{$this -> tableName} با موفقیت {$action} شد!";
-			$alert -> alerts( $alertMessage, 'success' );
-		}
-		else{
+		if( $result === false ){
 			$alertMessage = "خطا در {$action} {$this -> tableName}!";
 			$alert -> alerts( $alertMessage );
+		}
+		else{
+			$alertMessage = "{$this -> tableName} با موفقیت {$action} شد!";
+			$alert -> alerts( $alertMessage, 'success' );
 		}		
 	}
 	public function delete( $id ){
@@ -94,7 +94,8 @@ class Table{
 				VALUES({$valuesList})";
 		$result = $this -> db -> execute( $sql );
 		$this -> userAlert($result, 'ثبت');
-		// return ?
+		
+		return $result;
 	}
 	protected function update(){
 		$columnValueList = $this -> columnValueList();
@@ -107,12 +108,12 @@ class Table{
 	public function save( $parameters ){
 		$this -> setParam( $parameters );
 		if( isset( $this -> id ) )
-			$this -> update();
+			return $this -> update();
 		else
-			$this -> add();
+			return $this -> add();
 	}
 	
-	public function find($where = 'TRUE', $order = '', $limitTo = false , $limitFrom = 0){
+	public function find($where = 'TRUE', $order = 'id DESC', $rowCount = '' , $offset = 0){
 		$sql = "SELECT * FROM {$this -> tableName} 
 				WHERE {$where}  AND status != 'deleted'";
 		

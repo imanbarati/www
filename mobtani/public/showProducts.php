@@ -26,7 +26,7 @@
 		<main class = "col container-fluid">
 			<?php new Alert(); echo $alert -> alerts();?>
 			<h2>محصولات</h2>
-			<section class = "row">
+			<section class = "row card-deck">
 			<?php
 				foreach($table as $row){ // به ازای هر سطر از جدول
 					include '../includes/templates/productCard.php';

@@ -2,18 +2,32 @@
 include 'Table.php';
 include 'Product.php';
 include 'User.php';
+include 'Comment.php';
 // ....
 
 class DB{
-	var $dbc;
+	private $dbc;
 	var $executeError = false;
 	
-	function __construct($transaction = false, $SelectDB = true){ // تابعي که با ایجاد شیء از کلاس، اتوماتیک فراخوانی می‌شود		
+	public function __construct($transaction = false, $SelectDB = true){ // تابعي که با ایجاد شیء از کلاس، اتوماتیک فراخوانی می‌شود
+		global $alert;
 		// 1. اتصال به ديتابيس
 		$this -> dbc = new mysqli ( DBHOST, DBUSER, DBPASS );
+		if ( $this -> dbc -> connect_error){
+			$alertMessage = "خطا در اتصال به دیتابیس!<section lang = 'en'>{$this -> dbc -> connect_error}</section>";
+			$alert -> alerts( $alertMessage );
+			exit();
+		}
 		
-		if( $SelectDB )
+		if( $SelectDB ){
 			$this -> dbc -> select_db( DBNAME );
+			
+			if ( $this -> dbc -> error ){
+				$alertMessage = "خطا در انتخاب دیتابیس!<section lang = 'en'>{$this -> dbc -> error}</section>";
+				$alert -> alerts( $alertMessage );
+				exit();
+			}
+		}
 		$this -> dbc -> set_charset( CHARSET );
 		
 		if( $transaction ){
@@ -21,7 +35,7 @@ class DB{
 			$this -> dbc -> begin_transaction();
 		}
 	}
-	function execute( $sql ){
+	public function execute( $sql ){
 		// 3. اجرای کوئری
 		$result = $this -> dbc -> query( $sql );
 		
@@ -30,21 +44,23 @@ class DB{
 			$this -> executeError = true;
 			$alertMessage = "خطا در اجرای فرمان!<section lang = 'en'>{$this -> dbc -> error}</section>";
 			$alert -> alerts( $alertMessage );
+			exit();
 		}
 		else{
 			$alertMessage = "با موفقیت اجرا شد!<section lang = 'en'>{$sql}</section>";
 			$alert -> alerts( $alertMessage, 'success' );	
 		}
 		
-		if( $result !== true && $result !== false){
+		if( $result !== true && $result !== false){ // select query
 			$table = $result -> fetch_all( MYSQLI_ASSOC ); // جدول نتیجه به صورت آرایه انجمنی
 			return $table;
 		}
-		else{
+		elseif( isset($this -> dbc -> insert_id) ) // insert query
+			return $this -> dbc -> insert_id;
+		else // update, delete query
 			return $result;
-		}
 	}
-	function commit(){
+	public function commit(){
 		if( $this -> executeError ){ // اگر خطا در تراکنش
 			$this -> dbc -> rollback(); // بازگشت به حالت قبل از تراکنش
 			
@@ -58,7 +74,7 @@ class DB{
 			mobtani_alerts($alertMessage, 'success');
 		}
 	}
-	function __destruct(){ // با حذف شیء، این تابع فراخوانی می‌شود
+	public function __destruct(){ // با حذف شیء، این تابع فراخوانی می‌شود
 		// 4. بستن اتصال
 		$this -> dbc -> close();
 	}		

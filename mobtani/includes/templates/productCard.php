@@ -1,6 +1,6 @@
 <?php
 echo "
-	<article class = 'col-4'>
+	<article class = 'col-4 card-deck'>
 		<section class = 'card'>
 			<img src = '{$row['imgSrc']}' class = 'card-img-top'>
 			<section class = 'card-body'>

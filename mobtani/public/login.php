@@ -15,16 +15,15 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	
 	if( count( $table ) > 0 ){ // اگر مشخصات ورود صحیح است
 		$row = $table[0];
-		$id = row['id']; // کاربر لاگین کرده id
-		
-		$aaa -> login( $id );
+		$uid = $row['id']; // کاربر لاگین کرده id
+		$aaa -> login( $uid );
 		
 		$alert -> alerts("{$row['firstname']} {$row['lastname']} خوش آمدید!", 'success');
 		
 		$redirect = 'profile.php';
 		if( isset($_GET['redirect']) )
 			$redirect = $_GET['redirect'];
-		mobtani_redirect( $redirect );
+		//mobtani_redirect( $redirect );
 	}
 	else
 		$alert -> alerts('نام کاربری یا کلمه عبور اشتباه است!');
@@ -51,7 +50,10 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			<input type = "email" name = "email" id = "email" class="form-control" value = "<?php if( isset($_POST['email']) ) echo $_POST['email']; ?>"><br>
 			
 			<label for = "password">کلمه عبور</label>
-			<input type = "password" name = "password" id = "password" class="form-control"><br>
+			<span class="input-group">
+				<input type = "password" name = "password" id = "password" class="form-control">
+				<button type = "button" class = "input-group-text fas fa-eye" id = "toggleButton"></button>
+			</span><br>
 			
 			
 			<input type = "submit" name = "submit" value = "ورود" class="btn btn-success">
@@ -62,5 +64,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		
+		<script src="https://kit.fontawesome.com/e36ff0bc6c.js" crossorigin="anonymous"></script>
+		<script src = "assets/js/main.js"></script>
 	</body>
 </html>
