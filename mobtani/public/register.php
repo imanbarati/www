@@ -35,6 +35,8 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		$aaa = new AAA();
 		$aaa -> login( $uid );
 		
+		$alert -> alerts("{$row['firstname']} {$row['lastname']} خوش آمدید!", 'success');
+		
 		mobtani_redirect('profile.php');
 	}
 	else
@@ -60,12 +62,12 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		<form action = "" method = "post">
 			<label for = "firstname">نام و نام خانوادگی</label>
 			<span class = "input-group">
-				<input type = "text" name = "firstname" id = "firstname" placeholder = "نام" class="form-control">
-				<input type = "text" name = "lastname" id = "lastname" placeholder = "نام خانوادگی" class="form-control">
+				<input type = "text" name = "firstname" id = "firstname" placeholder = "نام" class="form-control" value = "<?php if( isset($_POST['firstname']) ) echo $_POST['firstname']; ?>">
+				<input type = "text" name = "lastname" id = "lastname" placeholder = "نام خانوادگی" class="form-control" value = "<?php if( isset($_POST['lastname']) ) echo $_POST['lastname']; ?>">
 			</span><br>
 			
 			<label for = "email">ایمیل</label>
-			<input type = "email" name = "email" id = "email" class="form-control"><br>
+			<input type = "email" name = "email" id = "email" class="form-control" value = "<?php if( isset($_POST['email']) ) echo $_POST['email']; ?>"><br>
 			
 			<label for = "password">کلمه عبور</label>
 			<span class="input-group">
@@ -89,7 +91,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			<br>
 			
 			<input type = "submit" name = "submit" value = "ثبت نام" class="btn btn-success">
-			<a href = "login.php" class = "btn btn-outline-secondary">وارد شوید</a>
+			<a href = "login.php" class = "btn btn-link">وارد شوید</a>
 		</form>
 		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

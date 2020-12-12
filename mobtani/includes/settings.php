@@ -15,5 +15,5 @@ $DBNAME = DBNAME;
 $CHARSET = CHARSET;
 $COLLATE = COLLATE;
 
-$restartingSetup = false;
+$restartingSetup = true;
 ?>

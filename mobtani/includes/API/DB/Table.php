@@ -120,5 +120,18 @@ class Table{
 		$table = $this -> db -> execute( $sql );
 		return $table;
 	}
+	function findJoin( $where = 'TRUE' , $order = '', $joinedTable = 'User'){
+		if( empty( $order) )
+			$order = "{$this -> tableName}.id DESC";
+		
+		$sql = "SELECT *
+				FROM {$joinedTable}, {$this -> tableName} 
+				WHERE {$joinedTable}id = {$joinedTable}.id
+				AND {$where}
+				AND {$this -> tableName}.status != 'deleted'
+				ORDER BY {$order}";
+		$table = $this -> db -> execute( $sql );
+		return $table;		
+	}
 }
 ?>

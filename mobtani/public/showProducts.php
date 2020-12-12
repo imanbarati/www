@@ -1,9 +1,9 @@
 <?php
-	$alert = '';
-
 	include('../includes/settings.php');
 	include '../includes/functions.php';
-
+	
+	$aaa = new AAA();
+	
 	$db = new db();
 	$product = new Product( $db );
 
@@ -23,15 +23,17 @@
 	</head>
 	<body class = "row">
 		<?php get_header();?>
-		<main class = "col container-fluid">
+		<main class = "col">
 			<?php new Alert(); echo $alert -> alerts();?>
-			<h2>محصولات</h2>
-			<section class = "row card-deck">
-			<?php
-				foreach($table as $row){ // به ازای هر سطر از جدول
-					include '../includes/templates/productCard.php';
-				}
-			?>
+			<section class = "container-fluid">
+				<h2>محصولات</h2>
+				<section class = "row">
+				<?php
+					foreach($table as $row){ // به ازای هر سطر از جدول
+						include '../includes/templates/productCard.php';
+					}
+				?>
+				</section>
 			</section>
 		</main>
 		<?php
@@ -43,5 +45,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		
+		<script src="https://kit.fontawesome.com/e36ff0bc6c.js" crossorigin="anonymous"></script>
 	</body>
 </html>

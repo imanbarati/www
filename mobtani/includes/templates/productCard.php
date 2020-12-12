@@ -1,7 +1,7 @@
 <?php
 echo "
-	<article class = 'col-4 card-deck'>
-		<section class = 'card'>
+	<article class = 'col-xl-4 col-sm-6 col-12 card-deck'>
+		<section class = 'card container-fluid'>
 			<img src = '{$row['imgSrc']}' class = 'card-img-top'>
 			<section class = 'card-body'>
 				<h4 class = 'card-title'>
@@ -11,8 +11,10 @@ echo "
 				</h4>
 				<section class = 'card-text'>
 					<p>
-						قیمت: {$row['price']} تومان<br>
-						توضیحات: {$row['description']}
+						<span class = 'font-weight-bold'>قیمت:</span> "
+						. number_format( $row['price'] ) . " تومان<br>
+						<span class = 'font-weight-bold'>توضیحات:</span> "
+						. mobtani_truncate( $row['description'] ) . "
 					</p>
 					<h5>زمان تشکیل</h5>
 					<p>
@@ -21,9 +23,21 @@ echo "
 					</p>
 				</section>
 			</section>
-			<footer class = 'card-footer'>
-				<a href = 'editProduct.php?id={$row['id']}' class = 'btn btn-primary'>ویرایش</a>
-				<a href = 'deleteProduct.php?id={$row['id']}' class = 'btn btn-danger'>حذف</a>
+			<footer class = 'card-footer row'>
+				<span class = 'col'>
+";
+				if( $aaa -> can('Product', 'Edit') )
+					echo "
+					<a href = 'editProduct.php?id={$row['id']}' class = 'btn btn-primary'>ویرایش</a>";
+				if( $aaa -> can('Product', 'Delete') )
+					echo "
+					<a href = 'deleteProduct.php?id={$row['id']}' class = 'btn btn-danger'>حذف</a>";
+echo "
+				</span>
+				<span class = 'col-4 text-left'>
+					<a href = 'likeProduct.php?id={$row['id']}' class = 'btn far fa-heart'></a>
+					<a href = 'saveProduct.php?id={$row['id']}' class = 'btn far fa-bookmark'></a>					
+				</span>
 			</footer>
 		</section>
 	</article>

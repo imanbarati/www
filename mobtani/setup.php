@@ -14,6 +14,8 @@
 			COLLATE {$COLLATE}";
 	$db -> execute( $sql );
 
+	unset( $db );
+	$db = new DB();
 	$sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.Message(
 				id INT NOT NULL AUTO_INCREMENT,
 				name VARCHAR(30),
@@ -46,7 +48,7 @@
 				password VARCHAR(50),
 				state VARCHAR(50),
 				city VARCHAR(50),
-				role VARCHAR(15),
+				Roleid INT,
 				imgSrc VARCHAR(255),
 				status VARCHAR(15),
 				PRIMARY KEY(id)
@@ -57,12 +59,70 @@
 				id INT NOT NULL AUTO_INCREMENT,
 				Userid INT,
 				Productid INT,
-				message Text,
+				message TEXT,
 				parentid INT,
 				status VARCHAR(15),
 				PRIMARY KEY(id)
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
+	
+	$sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.Role( 
+				id INT NOT NULL AUTO_INCREMENT,
+				role VARCHAR(15),
+				ProductEdit BOOLEAN,
+				ProductDelete BOOLEAN,
+				ProductDetails BOOLEAN,
+				ProductEditOther BOOLEAN,
+				ProductDeleteOther BOOLEAN,
+				ProductDetailsOther BOOLEAN,
+				UserEdit BOOLEAN,
+				UserDelete BOOLEAN,
+				UserDetails BOOLEAN,
+				UserEditOther BOOLEAN,
+				UserDeleteOther BOOLEAN,
+				UserDetailsOther BOOLEAN,
+				status VARCHAR(15),
+				PRIMARY KEY(id)
+			)ENGINE = INNODB";
+	$db -> execute( $sql );
+	echo 1;
+	$role = new Role( $db );	
+	$parameters = array(
+		'role'					=> 'normal',
+		'ProductEdit'			=> 0,
+		'ProductDelete'			=> 0,
+		'ProductDetails'		=> TRUE,
+		'ProductEditOther'		=> 0,
+		'ProductDeleteOther'	=> 0,
+		'ProductDetailsOther'	=> 0,
+		'UserEdit'				=> TRUE,
+		'UserDelete'			=> TRUE,
+		'UserDetails'			=> TRUE,
+		'UserEditOther'			=> 0,
+		'UserDeleteOther'		=> 0,
+		'UserDetailsOther'		=> TRUE
+		);
+	$role -> save( $parameters );
+	echo 2;
+	
+	$role = new Role( $db );	
+	$parameters = array(
+		'role'					=> 'admin',
+		'ProductEdit'			=> TRUE,
+		'ProductDelete'			=> TRUE,
+		'ProductDetails'		=> TRUE,
+		'ProductEditOther'		=> TRUE,
+		'ProductDeleteOther'	=> TRUE,
+		'ProductDetailsOther'	=> TRUE,
+		'UserEdit'				=> TRUE,
+		'UserDelete'			=> TRUE,
+		'UserDetails'			=> TRUE,
+		'UserEditOther'			=> TRUE,
+		'UserDeleteOther'		=> TRUE,
+		'UserDetailsOther'		=> TRUE,
+		);
+	$role -> save( $parameters );
+	echo 3;
 	
 	unset( $db );
 ?>

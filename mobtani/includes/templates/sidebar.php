@@ -1,5 +1,5 @@
 
-		<aside class = "col-4">
+		<aside class = "col-md-4 col-12">
 			<p>
 			اینجا سایدبار است
 			</p>

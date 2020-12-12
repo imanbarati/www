@@ -1,6 +1,7 @@
 <?php
 include 'Table.php';
 include 'Product.php';
+include 'Role.php';
 include 'User.php';
 include 'Comment.php';
 // ....

@@ -15,10 +15,14 @@ $db = new db();
 if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردازشش کن	
 	$comment = new Comment( $db );
 	
-	$parameters['message'] = nl2br( $_POST['message'] );
+	$parameters = $_POST;
+	var_dump($parameters);
+	$parameters['message'] = nl2br( $parameters['message'] );
 	$parameters['Userid'] = $aaa -> uid();
 	$parameters['Productid'] = $Productid;
 	$comment -> save( $parameters );
+	
+	mobtani_redirect('#comments');
 	
 	unset($comment);
 }	
@@ -27,7 +31,7 @@ $product = new Product( $db );
 $row = $product -> get( $Productid );
 	
 unset($product);
-//unset($db);	
+unset($db);	
 ?>
 <!doctype html>
 <html lang = "fa" class = "container-fluid">
@@ -48,36 +52,61 @@ unset($product);
 			<img src = '<?php echo $row['imgSrc']; ?>' class = 'card-img-top'>
 			<h3>مشخصات</h3>
 			<p>
-				قیمت: <?php echo $row['price']; ?> تومان<br>
-				توضیحات: <?php echo $row['description']; ?>
+				<span class = 'font-weight-bold'>قیمت:</span> <?php echo number_format( $row['price'] ); ?> تومان<br>
+				<span class = 'font-weight-bold'>توضیحات:</span> 
+				<?php
+				if( ! empty( $row['description'] ) ) echo $row['description'];
+				else echo '---';
+				?>
 			</p>
 			<h3>زمان تشکیل</h3>
 			<p>
 				روزهای <?php echo $row['weekday']; ?> 
 				از <?php echo $row['timeFrom']; ?> تا <?php echo $row['timeTo']; ?>
 			</p>
+			<hr>
 			<section>
+				<span class = "rateButtons">
+					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
+					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
+					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
+					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
+					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
+				</span>
 				<a href = 'editProduct.php?id=<?php echo $row['id']; ?>' class = 'btn btn-primary'>ویرایش</a>
 				<a href = 'deleteProduct.php?id=<?php echo $row['id']; ?>' class = 'btn btn-danger'>حذف</a>
 			</section>
-			<hr>
-			<form action = "#comments" method = "post">			
-				<h2>نظر جدید</h2>
-				<textarea name = "message" id = "message" class="form-control" placeholder = "نظر شما ..."></textarea>	
-				<input type = "submit" name = "submit" value = "ثبت" class="btn btn-success mt-2"><br><br>
+			<hr>			
+			<h2>نظر جدید</h2>
+			<form action = "" method = "post" class='form-inline container row mt-2'>
+				<textarea name = "message" id = "message" class="form-control col" placeholder = "نظر شما ..."></textarea>
+				<span class = "col-3">
+					<input type = "submit" name = "submit" value = "ثبت" class="btn btn-success"><br><br>
+				</span>
 			</form>
 			<?php
-			$comment = new Comment( $db );
-			$table = $comment -> test($Productid);
+			function getComments( $parentid = 0 ){
+				$comment = new Comment( new DB() );
+				global $Productid;
+				$table = $comment -> findJoin("Productid = {$Productid} AND parentid = {$parentid}");
+				return $table;
+			}
+			$table = getComments();
 			$count = count( $table ); // تعداد کامنت‌ها
 			echo "<h3 id = 'comments'>نظرات ({$count})</h3>";
 			?>
-			<section class = 'container'>
-			<?php			
-			foreach($table as $row){
-				//get_template_part('commentCard');
-				include '../includes/templates/comment.php';
+			<section class = 'container-fluid'>
+			<?php
+			function showComments( $parentid = 0 , $level = 1 ){
+				// لیست کاکنت ها را بازیابی کن
+				$table = getComments( $parentid );
+				// آن ها را نمایش بده
+				foreach($table as $row){
+					//get_template_part('commentCard');
+					include '../includes/templates/comment.php';
+				}
 			}
+			showComments();
 			if( $count == 0 )
 				echo '<p>اولین نظر را شما بنویسید</p>';
 			?>
@@ -92,5 +121,7 @@ unset($product);
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		
+		<script src="https://kit.fontawesome.com/e36ff0bc6c.js" crossorigin="anonymous"></script>
+		<script src = "assets/js/main.js"></script>
 	</body>
 </html>

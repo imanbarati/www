@@ -23,7 +23,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		$redirect = 'profile.php';
 		if( isset($_GET['redirect']) )
 			$redirect = $_GET['redirect'];
-		//mobtani_redirect( $redirect );
+		mobtani_redirect( $redirect );
 	}
 	else
 		$alert -> alerts('نام کاربری یا کلمه عبور اشتباه است!');
@@ -57,7 +57,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			
 			
 			<input type = "submit" name = "submit" value = "ورود" class="btn btn-success">
-			<a href = "register.php" class = "btn btn-outline-secondary">ثبت نام کنید</a>
+			<a href = "register.php" class = "btn btn-link">ثبت نام کنید</a>
 		</form>
 		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

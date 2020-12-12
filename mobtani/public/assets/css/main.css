@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@500&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@500&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&display=swap');
 
 :lang(fa){
@@ -31,12 +31,8 @@ label{
 */
 
 /* شخصی سازی بوت استرپ */
-.btn-primary{
-	/*
-	background-color:	green;
-	background:			hsl(120, 70%, 40%);
-	border:				none;
-	*/
+.btn{
+	//margin:			8px;
 }
 
 .form-control{
@@ -50,12 +46,39 @@ label{
 }
 .card{
 	//height:		100%;
+	padding:		0;
+	overflow:		hidden;
 }
 [class *= "col"]{
-	padding: 		.6rem 0.3rem;	
+	padding: 		.6rem .3rem;	
 }
-
+.leftAction{
+	float:			left;
+}
+.btn.far:link{
+	color:			silver;
+}
+.btn.far:hover{
+	color:			gray;
+}
+/* 5 star rating */
+.btn.far, .btn.fas{
+	padding:		.3rem;	
+}
+.btn.fa-star{
+	padding:		.1rem;
+}
+.btn.fas.fa-star{
+	color:			orange;
+}
+.btn.fas{
+	transition-duration:	.1s;
+}
 /* لیست کامنت */
 .profile img{
 	border-radius:	50%;
+}
+
+.commentFormBlock{
+	display:		none;
 }

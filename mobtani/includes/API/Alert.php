@@ -1,8 +1,10 @@
 <?php
 class Alert{
 	public function __construct(){
-		if(session_status() !== PHP_SESSION_ACTIVE)
+		if(session_status() !== PHP_SESSION_ACTIVE){
+			session_set_cookie_params ( $lifetime = 30 * 24 * 60 * 60 , $path = '/', $domain = $_SERVER['HTTP_HOST'] , $secure = false , $httponly = true );
 			session_start();
+		}
 	}
 	
 	private function makeAlert($alertMessage, $status){

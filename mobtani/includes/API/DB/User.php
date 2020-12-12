@@ -8,6 +8,6 @@ class User extends Table{
 	var $state;
 	var $city;
 	var $imgSrc;
-	var $role = 'normal';
+	var $Roleid = 1;
 }
 ?>

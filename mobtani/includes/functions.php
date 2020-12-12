@@ -31,4 +31,12 @@ function mobtani_redirect( $address ){
 	die();
 }
 
+function mobtani_truncate($string, $max = 100, $replacement = ' ...') {
+	if( strlen($string) > $max ){
+		$string = wordwrap($string, $max); // افزودن اینتر در مرز حداکثر
+		$string = substr($string, 0, strpos($string, "\n")); // تقطیع تا اینتر
+		$string .= $replacement;
+	}
+	return $string;	
+}
 ?>
