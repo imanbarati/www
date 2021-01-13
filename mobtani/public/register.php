@@ -59,7 +59,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	<body class = "container">
 		<h1>ثبت نام</h1>
 		<?php echo $alert -> alerts();?>
-		<form action = "" method = "post">
+		<form action = "" method = "post" name = "registerForm">
 			<label for = "firstname">نام و نام خانوادگی</label>
 			<span class = "input-group">
 				<input type = "text" name = "firstname" id = "firstname" placeholder = "نام" class="form-control" value = "<?php if( isset($_POST['firstname']) ) echo $_POST['firstname']; ?>">
@@ -73,24 +73,34 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			<span class="input-group">
 				<input type = "password" name = "password" id = "password" class="form-control">
 				<button type = "button" class = "input-group-text fas fa-eye" id = "toggleButton"></button>
-			</span><br>
-			
-			
-			
-			
+			</span><br>		
 			
 			<label for = "state">استان</label>			
-			<select name = "state" id = "state" class="form-control">
-				<option value = "isfahan">اصفهان</option>
-			</select>
+			<input name = "state" list = "stateList" id = "state" class="form-control">
+			<datalist id = "stateList">
+				<?php
+					$ostan = new Ostan( new DB() );
+					$table = $ostan -> getAll();
+					foreach($table as $row){
+						echo "<option value = '{$row['name']}'>";
+					}
+				?>
+			</datalist>
 			<br>
 			<label for = "city">شهر</label>			
-			<select name = "city" id = "city" class="form-control">
-				<option value = "isfahan">اصفهان</option>
-			</select>
+			<input name = "city" list = "cityList" id = "city" class="form-control">
+			<datalist id = "cityList">
+				<?php
+					$shahr = new Shahr( new DB() );
+					$table = $shahr -> find('shahr_type = 0');
+					foreach($table as $row){
+						echo "<option value = '{$row['name']}'>";
+					}
+				?>
+			</datalist>
 			<br>
 			
-			<input type = "submit" name = "submit" value = "ثبت نام" class="btn btn-success">
+			<input type = "submit" name = "submit" value = "ثبت نام" class= "btn btn-success">
 			<a href = "login.php" class = "btn btn-link">وارد شوید</a>
 		</form>
 		

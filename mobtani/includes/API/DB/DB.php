@@ -1,9 +1,12 @@
 <?php
 include 'Table.php';
-include 'Product.php';
 include 'Role.php';
 include 'User.php';
+include 'Product.php';
 include 'Comment.php';
+include 'Rate.php';
+include 'Ostan.php';
+include 'Shahr.php';
 // ....
 
 class DB{

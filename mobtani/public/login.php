@@ -45,7 +45,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	<body class = "container">
 		<h1>ورود</h1>
 		<?php echo $alert -> alerts();?>
-		<form action = "" method = "post">			
+		<form action = "" method = "post" name = "loginForm">			
 			<label for = "email">ایمیل</label>
 			<input type = "email" name = "email" id = "email" class="form-control" value = "<?php if( isset($_POST['email']) ) echo $_POST['email']; ?>"><br>
 			

@@ -65,16 +65,35 @@ unset($db);
 				از <?php echo $row['timeFrom']; ?> تا <?php echo $row['timeTo']; ?>
 			</p>
 			<hr>
-			<section>
-				<span class = "rateButtons">
-					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
-					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
-					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
-					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
-					<a href = '<?php echo "rateProduct.php?id={$row['id']}"; ?>' class = 'leftAction btn far fa-star'></a>
+			<section class = "row container">
+				<span class = 'col'>
+					<?php
+					if( $aaa -> can('Product', 'Edit') ){
+					?>
+						<a href = 'editProduct.php?id=<?php echo $row['id']; ?>' class = 'btn btn-primary'>ویرایش</a>
+					<?php
+					}
+					if( $aaa -> can('Product', 'Delete') ){
+					?>
+						<a href = 'deleteProduct.php?id=<?php echo $row['id']; ?>' class = 'btn btn-danger'>حذف</a>
+					<?php
+					}
+					?>
 				</span>
-				<a href = 'editProduct.php?id=<?php echo $row['id']; ?>' class = 'btn btn-primary'>ویرایش</a>
-				<a href = 'deleteProduct.php?id=<?php echo $row['id']; ?>' class = 'btn btn-danger'>حذف</a>
+				<span class = 'col-6 text-left'>
+					<?php 
+					if( $aaa -> can('Rate', 'Edit') ){
+						$rate = new Rate( new DB() );
+						$Userid = $aaa -> uid();
+						$where = "Userid = {$Userid} AND Productid = {$Productid}";
+						$table = $rate -> find($where);
+						$vote = 0;
+						if( $table[0] )
+							$vote = $table[0]['vote'];
+						include '../includes/templates/rate.php';
+					}
+					?>
+				</span>
 			</section>
 			<hr>			
 			<h2>نظر جدید</h2>

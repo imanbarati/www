@@ -8,6 +8,7 @@ class Role extends Table{
 	var $ProductEditOther;
 	var $ProductDeleteOther;
 	var $ProductDetailsOther;
+	var $RateEdit;
 	var $UserEdit;
 	var $UserDelete;
 	var $UserDetails;

@@ -113,10 +113,12 @@ class Table{
 			return $this -> add();
 	}
 	
-	public function find($where = 'TRUE', $order = 'id DESC', $rowCount = '' , $offset = 0){
+	public function find($where = 'TRUE', $order = 'id DESC', $rowCount = 10000 , $offset = 0){
 		$sql = "SELECT * FROM {$this -> tableName} 
-				WHERE {$where}  AND status != 'deleted'";
-		
+				WHERE {$where} 
+				AND status != 'deleted' 
+				ORDER BY {$order} 
+				LIMIT {$offset}, {$rowCount}";
 		$table = $this -> db -> execute( $sql );
 		return $table;
 	}

@@ -9,8 +9,8 @@ echo "
 		{$row['message']}
 		<footer>
 			<button type = 'button' class = 'btn text-muted replyButton'>پاسخ</button>
-			<button type = 'button' class = 'btn far fa-thumbs-up text-muted'> 2</button>
-			<button type = 'button' class = 'btn far fa-thumbs-down text-muted'> 5</button>
+			<a class = 'btn far fa-thumbs-up'> 2</a>
+			<a class = 'btn far fa-thumbs-down'> 5</a>
 		</footer>
 		<section class = 'commentFormBlock container-fluid'>
 			<form action = '#comments' method = 'post' class='form-inline row'>

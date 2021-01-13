@@ -66,6 +66,16 @@
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
 	
+	$sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.Rate( 
+				id INT NOT NULL AUTO_INCREMENT,
+				Userid INT,
+				Productid INT,
+				vote INT,
+				status VARCHAR(15),
+				PRIMARY KEY(id)
+			)ENGINE = INNODB";
+	$db -> execute( $sql );
+	
 	$sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.Role( 
 				id INT NOT NULL AUTO_INCREMENT,
 				role VARCHAR(15),
@@ -75,6 +85,7 @@
 				ProductEditOther BOOLEAN,
 				ProductDeleteOther BOOLEAN,
 				ProductDetailsOther BOOLEAN,
+				RateEdit BOOLEAN,
 				UserEdit BOOLEAN,
 				UserDelete BOOLEAN,
 				UserDetails BOOLEAN,
@@ -85,9 +96,10 @@
 				PRIMARY KEY(id)
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
-	echo 1;
+	
 	$role = new Role( $db );	
 	$parameters = array(
+		'id'					=> 1,
 		'role'					=> 'normal',
 		'ProductEdit'			=> 0,
 		'ProductDelete'			=> 0,
@@ -95,6 +107,7 @@
 		'ProductEditOther'		=> 0,
 		'ProductDeleteOther'	=> 0,
 		'ProductDetailsOther'	=> 0,
+		'RateEdit'				=> TRUE,
 		'UserEdit'				=> TRUE,
 		'UserDelete'			=> TRUE,
 		'UserDetails'			=> TRUE,
@@ -103,10 +116,10 @@
 		'UserDetailsOther'		=> TRUE
 		);
 	$role -> save( $parameters );
-	echo 2;
 	
 	$role = new Role( $db );	
 	$parameters = array(
+		'id'					=> 2,
 		'role'					=> 'admin',
 		'ProductEdit'			=> TRUE,
 		'ProductDelete'			=> TRUE,
@@ -114,6 +127,7 @@
 		'ProductEditOther'		=> TRUE,
 		'ProductDeleteOther'	=> TRUE,
 		'ProductDetailsOther'	=> TRUE,
+		'RateEdit'				=> TRUE,
 		'UserEdit'				=> TRUE,
 		'UserDelete'			=> TRUE,
 		'UserDetails'			=> TRUE,
@@ -122,9 +136,52 @@
 		'UserDetailsOther'		=> TRUE,
 		);
 	$role -> save( $parameters );
-	echo 3;
 	
-	unset( $db );
+	
+	
+	
+	// Temporary variable, used to store current query
+	$sql = '';
+	// Read in entire file
+	$lines = file('iran_cities_v3.sql');
+	// Loop through each line
+	foreach ($lines as $line)
+	{
+		// Skip if it's a comment
+		if (substr($line, 0, 2) == '--' || $line == '')
+			continue;
+
+		// Add this line to the current segment
+		$sql .= $line;
+		// If it has a semicolon at the end, it's the end of the query
+		if (substr(trim($line), -1, 1) == ';')
+		{
+			// Perform the query			
+			$db -> execute( $sql );
+			
+			// Reset temp variable to empty
+			$sql = '';
+		}
+	}
+	
+if( $restartingSetup ){
+	
+	$sql = "ALTER TABLE {$DBNAME}.ostan
+			ADD Column status VARCHAR(15) DEFAULT ''";
+	$db -> execute( $sql );
+	
+	$sql = "ALTER TABLE {$DBNAME}.shahr
+			ADD Column status VARCHAR(15) DEFAULT ''";
+	$db -> execute( $sql );
+	/*
+	$sql = "RENAME TABLE
+			{$DBNAME}.ostan TO {$DBNAME}.Ostan,
+			{$DBNAME}.shahr TO {$DBNAME}.Shahr";
+	$db -> execute( $sql );
+	*/
+}
+
+	unset( $db );	
 ?>
 <!doctype html>
 <html lang = "fa">

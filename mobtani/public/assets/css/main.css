@@ -55,11 +55,11 @@ label{
 .leftAction{
 	float:			left;
 }
-.btn.far:link{
-	color:			silver;
+.btn.far{
+	color:			#aaa;
 }
-.btn.far:hover{
-	color:			gray;
+.btn.far:hover, .btn.fas:hover{
+	color:			#222;
 }
 /* 5 star rating */
 .btn.far, .btn.fas{
@@ -68,9 +68,14 @@ label{
 .btn.fa-star{
 	padding:		.1rem;
 }
-.btn.fas.fa-star{
+
+.btn.fas.fa-star.voted{
+	color:			gold;
+}
+:hover > .btn.fas.fa-star{
 	color:			orange;
 }
+
 .btn.fas{
 	transition-duration:	.1s;
 }
@@ -80,5 +85,5 @@ label{
 }
 
 .commentFormBlock{
-	display:		none;
+	//display:		none;
 }
