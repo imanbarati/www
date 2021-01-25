@@ -47,7 +47,7 @@ unset($db);
 		<main class = "col container-fluid">
 			<?php new Alert(); echo $alert -> alerts();?>
 			<h2>
-				نام دوره: <?php echo $row['name']; ?>
+				نام محصول: <?php echo $row['name']; ?>
 			</h2>
 			<img src = '<?php echo $uploadBrowserPath . $row['imgSrc']; ?>' class = 'card-img-top'>
 			<h3>مشخصات</h3>
@@ -59,7 +59,7 @@ unset($db);
 				else echo '---';
 				?>
 			</p>
-			<h3>زمان تشکیل</h3>
+			<h3>زمان فروش</h3>
 			<p>
 				روزهای <?php echo $row['weekday']; ?> 
 				از <?php echo $row['timeFrom']; ?> تا <?php echo $row['timeTo']; ?>

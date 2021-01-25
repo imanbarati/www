@@ -6,7 +6,7 @@ echo "
 			<section class = 'card-body'>
 				<h4 class = 'card-title'>
 					<a href = 'productDetails.php?id={$row['id']}' class = 'card-link'>
-						نام دوره: {$row['name']}
+						نام محصول: {$row['name']}
 					</a>
 				</h4>
 				<section class = 'card-text'>
@@ -16,7 +16,7 @@ echo "
 						<span class = 'font-weight-bold'>توضیحات:</span> "
 						. mobtani_truncate( $row['description'] ) . "
 					</p>
-					<h5>زمان تشکیل</h5>
+					<h5>زمان فروش</h5>
 					<p>
 						روزهای {$row['weekday']} 
 						از {$row['timeFrom']} تا {$row['timeTo']}

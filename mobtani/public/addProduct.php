@@ -60,8 +60,8 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		<h1>تماس با ما</h1>
 		<?php echo $alert -> alerts();?>
 		<form action = "" method = "post" enctype = "multipart/form-data">	
-			<h3>مشخصات دوره</h3>
-				<label for = "name">نام دوره</label>
+			<h3>مشخصات محصول</h3>
+				<label for = "name">نام </label>
 			<section class = "input-group">
 				<input type = "text" name = "name" id = "name" class="form-control" required>
 			</section>
@@ -74,10 +74,10 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			<label for = "description">توضیحات </label>
 			<textarea name = "description" id = "description" class="form-control"></textarea><br>
 			
-			<label for = "file">تصویر دوره</label>
+			<label for = "file">تصویر </label>
 			<input type = "file" name = "productPicture" id = "file" class="form-control"><br>
 			
-			<h3>زمان برگزاری</h3>
+			<h3>زمان </h3>
 			<label for = "weekday">روز هفته</label>
 			<select name = "weekday" id = "weekday" class="form-control">
 				<option value = "saturday">شنبه</option>
@@ -89,9 +89,9 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 				<option value = "friday">جمعه</option>
 			</select>
 			<br>
-			<label for = "timeFrom">زمان کلاس از </label>
+			<label for = "timeFrom">زمان  از </label>
 			<input type = "time" name = "timeFrom" id = "timeFrom" value = "00:00" class="form-control"><br>
-			<label for = "timeTo">زمان کلاس تا </label>
+			<label for = "timeTo">زمان  تا </label>
 			<input type = "time" name = "timeTo" id = "timeTo" value = "00:00" class="form-control">
 			<br>
 			
