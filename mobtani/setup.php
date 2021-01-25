@@ -4,10 +4,10 @@
 		
 	$db = new DB(false, false); // transaction = false, SelectDB = false	
 	
-	if( $restartingSetup ){
-		$sql = "DROP DATABASE IF EXISTS {$DBNAME}";
-		$db -> execute( $sql );
-	}
+if( $restartingSetup ){
+	$sql = "DROP DATABASE IF EXISTS {$DBNAME}";
+	$db -> execute( $sql );
+}
 	
 	$sql = "CREATE DATABASE IF NOT EXISTS {$DBNAME}
 			CHARACTER SET {$CHARSET}
@@ -97,9 +97,9 @@
 			)ENGINE = INNODB";
 	$db -> execute( $sql );
 	
+if( $restartingSetup ){
 	$role = new Role( $db );	
 	$parameters = array(
-		'id'					=> 1,
 		'role'					=> 'normal',
 		'ProductEdit'			=> 0,
 		'ProductDelete'			=> 0,
@@ -119,7 +119,6 @@
 	
 	$role = new Role( $db );	
 	$parameters = array(
-		'id'					=> 2,
 		'role'					=> 'admin',
 		'ProductEdit'			=> TRUE,
 		'ProductDelete'			=> TRUE,
@@ -136,10 +135,9 @@
 		'UserDetailsOther'		=> TRUE,
 		);
 	$role -> save( $parameters );
-	
-	
-	
-	
+}
+
+if( $restartingSetup ){	
 	// Temporary variable, used to store current query
 	$sql = '';
 	// Read in entire file
@@ -163,8 +161,6 @@
 			$sql = '';
 		}
 	}
-	
-if( $restartingSetup ){
 	
 	$sql = "ALTER TABLE {$DBNAME}.ostan
 			ADD Column status VARCHAR(15) DEFAULT ''";

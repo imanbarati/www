@@ -1,6 +1,7 @@
 <?php
-include '../includes/settings.php' ;
-include '../includes/functions.php';
+include '__php__.php';
+include ($incPath . 'settings.php') ;
+include ($incPath . 'functions.php') ;
 
 $aaa = new AAA();
 if( $aaa -> isAuthenticated() )
@@ -59,7 +60,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	<body class = "container">
 		<h1>ثبت نام</h1>
 		<?php echo $alert -> alerts();?>
-		<form action = "" method = "post" name = "registerForm">
+		<form action = "" method = "post" name = "registerForm" >
 			<label for = "firstname">نام و نام خانوادگی</label>
 			<span class = "input-group">
 				<input type = "text" name = "firstname" id = "firstname" placeholder = "نام" class="form-control" value = "<?php if( isset($_POST['firstname']) ) echo $_POST['firstname']; ?>">
@@ -67,16 +68,16 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			</span><br>
 			
 			<label for = "email">ایمیل</label>
-			<input type = "email" name = "email" id = "email" class="form-control" value = "<?php if( isset($_POST['email']) ) echo $_POST['email']; ?>"><br>
+			<input type = "email" name = "email" id = "email" class="form-control far fa-eye" required value = "<?php if( isset($_POST['email']) ) echo $_POST['email']; ?>"><br>
 			
 			<label for = "password">کلمه عبور</label>
 			<span class="input-group">
-				<input type = "password" name = "password" id = "password" class="form-control">
+				<input type = "password" name = "password" id = "password" class="form-control" required>
 				<button type = "button" class = "input-group-text fas fa-eye" id = "toggleButton"></button>
 			</span><br>		
 			
 			<label for = "state">استان</label>			
-			<input name = "state" list = "stateList" id = "state" class="form-control">
+			<input name = "state" list = "stateList" id = "state" class="form-control" required>
 			<datalist id = "stateList">
 				<?php
 					$ostan = new Ostan( new DB() );
@@ -88,7 +89,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			</datalist>
 			<br>
 			<label for = "city">شهر</label>			
-			<input name = "city" list = "cityList" id = "city" class="form-control">
+			<input name = "city" list = "cityList" id = "city" class="form-control" required>
 			<datalist id = "cityList">
 				<?php
 					$shahr = new Shahr( new DB() );

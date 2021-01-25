@@ -1,10 +1,9 @@
 <?php
+include '__php__.php';
+include ($incPath . 'settings.php') ;
+include ($incPath . 'functions.php') ;
 if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردازشش کن
-	
-	include('../includes/settings.php');
-	include('../includes/API/DB.php');
-	include '../includes/functions.php';
-	
+		
 	// 2. ايجاد کوئري
 	$sql = "INSERT INTO Message (name, email, message) 
 	VALUES('{$_POST['name']}', '{$_POST['email']}', '{$_POST['message']}')";

@@ -2,6 +2,7 @@
 include 'API/DB/DB.php';
 include 'API/Alert.php';
 include 'API/AAA.php';
+include 'API/validation/Image.php';
 
 function get_header( $name = '' ){
 	if( ! empty($name) )

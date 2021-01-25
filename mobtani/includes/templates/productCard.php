@@ -2,7 +2,7 @@
 echo "
 	<article class = 'col-xl-4 col-sm-6 col-12 card-deck'>
 		<section class = 'card container-fluid'>
-			<img src = '{$row['imgSrc']}' class = 'card-img-top'>
+			<img src = '{$uploadBrowserPath}{$row['imgSrc']}' class = 'card-img-top'>
 			<section class = 'card-body'>
 				<h4 class = 'card-title'>
 					<a href = 'productDetails.php?id={$row['id']}' class = 'card-link'>

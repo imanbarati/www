@@ -26,6 +26,7 @@ class AAA{
 			return false;
 		
 		$user = new User( new DB() );
+		//var_dump($user);
 		$uid = $this -> uid();
 		$table = $user -> findJoin("User.id = {$uid}", null, 'Role');
 		$row = $table[0];

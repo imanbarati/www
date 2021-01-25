@@ -1,6 +1,7 @@
 <?php
-include '../includes/settings.php' ;
-include '../includes/functions.php';
+include '__php__.php';
+include ($incPath . 'settings.php') ;
+include ($incPath . 'functions.php') ;
 
 
 $aaa = new AAA();

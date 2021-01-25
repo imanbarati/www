@@ -22,6 +22,49 @@ function toggleVisibility(e){
 	}
 }
 
+// form validation
+
+var requiredList = document.querySelectorAll(':required');
+for(i = 0; i < requiredList.length; i++){
+	var node = document.createElement('span'); // Create a <span> node
+	//var textnode = document.createTextNode('*');
+	//node.appendChild( textnode ); // Append the text to <span>
+	
+	node.classList.add('fas');
+	node.classList.add('fa-asterisk');
+	//node.classList.add('text-danger');
+	
+	requiredList[i].parentNode.appendChild( node );	
+}
+
+var numberList = document.querySelectorAll('[type = "number"]');
+for(i = 0; i < numberList.length; i++){
+	numberList[i].addEventListener( 'input', numberValidation );
+}
+function numberValidation(e){
+	//e.preventDefault();	
+	if( this.validity.rangeUnderflow ){
+		var error = 'عدد باید بزرگتر یا مساوی ' + this.min + ' باشد!';
+		this.setCustomValidity( error );
+		//this.reportValidity();		
+	}
+	else if( this.validity.rangeOverflow ){
+		var error = 'عدد باید کوچکتر یا مساوی ' + this.max + ' باشد!';
+		this.setCustomValidity( error );
+		//this.reportValidity();		
+	}
+	else if( this.validity.stepMismatch ){
+		var numFloor = Math.floor(this.value / this.step) * this.step;
+		var numCeil = numFloor + Math.floor(this.step);
+		var error = 'عدد نامعتبر! نزدیکترین اعداد ' + numFloor + ' و ' + numCeil + ' است!';
+		this.setCustomValidity( error );
+		//this.reportValidity();		
+	}
+	else{
+		this.setCustomValidity(''); // valid
+		//this.reportValidity();
+	}
+}
 
 // toggle form visibility
 var replyButtons = document.querySelectorAll('.replyButton');
@@ -116,4 +159,26 @@ function ratingAjaxFunction(e){
 	var showVotedStars = showStars.bind( this, true );
 	showVotedStars();
 	//showStars(true);
+}
+
+// username availability check
+
+
+var email = document.querySelector('[name = "email"]');
+//var email = document.registerForm.email; // فقط ایمیل فرم ثبت نام
+if( email )
+	email.addEventListener( 'input', emailAvailabilityCheck );
+
+function emailAvailabilityCheck(e){
+	url = 'checkEmail.php?email=' + this.value;
+	ajaxHandler( url, checkEmailARH );
+}
+function checkEmailARH( ajax ){
+	if( ajax.responseText === 'yes' ){
+		alert('این ایمیل تکراری است');
+		// someTag.textContent = 'این ایمیل تکراری است';
+	}
+	else{
+		// someTag.textContent = '';		
+	}
 }

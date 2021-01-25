@@ -1,6 +1,7 @@
 <?php
-include '../includes/settings.php' ;
-include '../includes/functions.php';
+include '__php__.php';
+include ($incPath . 'settings.php') ;
+include ($incPath . 'functions.php') ;
 
 $aaa = new AAA();
 if( ! $aaa -> isAuthenticated() ){
@@ -10,9 +11,14 @@ if( ! $aaa -> isAuthenticated() ){
 // اگر کاربر حق دسترسی به این صفحه را ندارد به صفحه دیگری ریدایرکت شود
 
 if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردازشش کن
-		
-	$imgSrc = '/mobtani/public/assets/images/uploads/image.jpg';
 	
+	//var_dump( $_FILES );
+	$imgSrc = 'image.jpg';
+	$image = new Image( $_FILES['productPicture'] );
+	if( $image -> isValid() )
+		$imgSrc = $image -> commit();
+	
+	// if valid & not required {
 	$db = new db();
 	$product = new Product( $db );
 	
@@ -30,6 +36,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	
 	unset($product);
 	unset($db);
+	// }
 	
 	//mobtani_redirect('showProducts.php');
 	/*
@@ -52,18 +59,24 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	<body class = "container">
 		<h1>تماس با ما</h1>
 		<?php echo $alert -> alerts();?>
-		<form action = "" method = "post">	
+		<form action = "" method = "post" enctype = "multipart/form-data">	
 			<h3>مشخصات دوره</h3>
-			<label for = "name">نام دوره</label>
-			<input type = "text" name = "name" id = "name" class="form-control"><br>
+				<label for = "name">نام دوره</label>
+			<section class = "input-group">
+				<input type = "text" name = "name" id = "name" class="form-control" required>
+			</section>
 			
 			<label for = "price">قیمت</label>
 			<span class = "input-group">
-				<input type = "number" name = "price" id = "price" class="form-control" min = "0" step = "1000">
+				<input type = "number" name = "price" id = "price" class="form-control" min = "0" step = "1000" max = "5000" required>
 				<span class = "input-group-text">تومان</span>
 			</span><br>
 			<label for = "description">توضیحات </label>
 			<textarea name = "description" id = "description" class="form-control"></textarea><br>
+			
+			<label for = "file">تصویر دوره</label>
+			<input type = "file" name = "productPicture" id = "file" class="form-control"><br>
+			
 			<h3>زمان برگزاری</h3>
 			<label for = "weekday">روز هفته</label>
 			<select name = "weekday" id = "weekday" class="form-control">
@@ -89,5 +102,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		
+		<script src="https://kit.fontawesome.com/e36ff0bc6c.js" crossorigin="anonymous"></script>
+		<script src = "assets/js/main.js"></script>
 	</body>
 </html>

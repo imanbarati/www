@@ -1,10 +1,10 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@500&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap')
 :lang(fa){
 	text-align:	right;
 	direction:	rtl;
-	font-family:	'Markazi Text', cursive;
+	/*font-family:	'Markazi Text', cursive;*/font-family: 'Rakkas', cursive;
 }
 :lang(en){
 	text-align:	left;
@@ -78,6 +78,24 @@ label{
 
 .btn.fas{
 	transition-duration:	.1s;
+}
+
+/* اعتبارسنجی */
+:focus:valid:not(form):not( [type = "submit"] ){
+	background:		hsl(120, 50%, 90%);
+	border:			1px solid green;
+}
+:focus:invalid:not(form){
+	background:		hsl(0, 50%, 90%);
+	border:			1px solid red;
+}
+/*
+:required{
+	background-image: ...
+}
+*/
+form .fa-asterisk{
+	color:red;
 }
 /* لیست کامنت */
 .profile img{

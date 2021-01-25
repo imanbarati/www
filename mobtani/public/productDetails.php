@@ -1,6 +1,7 @@
 <?php
-include '../includes/settings.php' ;
-include '../includes/functions.php';
+include '__php__.php';
+include ($incPath . 'settings.php') ;
+include ($incPath . 'functions.php') ;
 
 $aaa = new AAA();
 /*
@@ -16,7 +17,6 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	$comment = new Comment( $db );
 	
 	$parameters = $_POST;
-	var_dump($parameters);
 	$parameters['message'] = nl2br( $parameters['message'] );
 	$parameters['Userid'] = $aaa -> uid();
 	$parameters['Productid'] = $Productid;
@@ -49,7 +49,7 @@ unset($db);
 			<h2>
 				نام دوره: <?php echo $row['name']; ?>
 			</h2>
-			<img src = '<?php echo $row['imgSrc']; ?>' class = 'card-img-top'>
+			<img src = '<?php echo $uploadBrowserPath . $row['imgSrc']; ?>' class = 'card-img-top'>
 			<h3>مشخصات</h3>
 			<p>
 				<span class = 'font-weight-bold'>قیمت:</span> <?php echo number_format( $row['price'] ); ?> تومان<br>
@@ -88,7 +88,7 @@ unset($db);
 						$where = "Userid = {$Userid} AND Productid = {$Productid}";
 						$table = $rate -> find($where);
 						$vote = 0;
-						if( $table[0] )
+						if( isset( $table[0] ) )
 							$vote = $table[0]['vote'];
 						include '../includes/templates/rate.php';
 					}
