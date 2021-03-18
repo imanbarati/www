@@ -20,7 +20,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		// مشخصات کاربری را ذخیره کن
 		$parameters = $_POST;
 		$parameters['imgSrc'] = $imgSrc;
-		/*
+		
 		$parameters = array(
 			'firstname'			=> $_POST['firstname'],
 			'lastname'			=> $_POST['lastname'],
@@ -30,7 +30,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 			'imgSrc'		=> $imgSrc,
 			'description' 	=> $_POST['description'],
 			//'status'		=> 'active',
-			);*/
+			);
 		$uid = $user -> save( $parameters );
 		// همچنین این کاربر را لاگین کن
 		$aaa = new AAA();

@@ -21,13 +21,15 @@ include ($incPath . 'functions.php') ;
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		
 		<link rel = "stylesheet" href = "assets/css/main.css">
+		<link rel="shortcut icon" href="/mobtani/public/assets/images/favicon.ico" type="image/x-icon"/>
+
 	</head>
 	<body class = "row">
 		<?php get_header();?>
 		<main class = "col">
-			<?php new Alert(); echo $alert -> alerts();?>
+			<?php //new Alert(); echo $alert -> alerts();?>
 			<section class = "container-fluid">
-				<h2>محصولات</h2>
+				<center><h2>محصولات</h2></center>
 				<section class = "row">
 				<?php
 					foreach($table as $row){ // به ازای هر سطر از جدول
