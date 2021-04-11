@@ -34,6 +34,13 @@ class Table{
 		$table = $this -> db -> execute( $sql );
 		return $table;
 	}
+/* 	public function getjust(){
+		$sql = "SELECT * FROM {$this -> tableName} 
+				WHERE id = 'deleted'";
+		
+		$table = $this -> db -> execute( $sql );
+		return $table;
+	} */
 	private function userAlert( $result, $action ){
 		global $alert;
 		if( $result === false ){

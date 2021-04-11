@@ -37,7 +37,7 @@ echo "
 				<span class = 'col-4 text-left'>
 					<a href = 'likeProduct.php?id={$row['id']}' class = 'btn fas fa-heart'></a>
 					<a href = 'saveProduct.php?id={$row['id']}' class = 'btn far fa-bookmark'></a>		
-					<a href='basket.html?id={$row['id']}' class='fa fa-cart-plus'></a>
+					<a href='checkout.php?id={$row['id']}' class='fa fa-cart-plus'></a>
 				</span>
 			</footer>
 		</section>
