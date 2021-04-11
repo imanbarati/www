@@ -95,9 +95,11 @@ if( $restartingSetup ){
 				status VARCHAR(15),
 				PRIMARY KEY(id)
 			)ENGINE = INNODB";
+	$db -> execute( $sql );
 
 $sql = "CREATE TABLE IF NOT EXISTS {$DBNAME}.Order( 				id INT NOT NULL AUTO_INCREMENT,
-totalsum int,
+totalsum int)
+ENGINE = INNODB";
 
 	$db -> execute( $sql );
 	
