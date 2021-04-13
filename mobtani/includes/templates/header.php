@@ -40,6 +40,7 @@ li a:hover {
   <li><a href="/mobtani/public">محصولات</a></li>
   <li><a href="/mobtani/public">تماس</a></li>
   <li><a href="/mobtani/public">درباره</a></li>
+  <li><a href="/mobtani/public">عضوشوی</a></li>
 
 
   <li><div id="search">
