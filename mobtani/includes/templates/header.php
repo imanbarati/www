@@ -33,17 +33,18 @@ li a {
 li a:hover {
   background-color: #111111;
 }
-</style>
+</style>  <div dir="RTL">
+
 <ul>
   <li><a href="/mobtani/public">خانه</a></li>
   <li><a href="/mobtani/public">محصولات</a></li>
   <li><a href="/mobtani/public">تماس</a></li>
   <li><a href="/mobtani/public">درباره</a></li>
-</ul>
 
-<div id="search">
+
+  <li><div id="search">
 <form method="get" id="search-form" action="https://duckduckgo.com/" onsubmit="document.getElementById('words').value+=' (site:www.FreeBSD.org OR site:docs.FreeBSD.org OR site:lists.FreeBSD.org OR site:wiki.FreeBSD.org OR site:forums.FreeBSD.org)'" name="search-form"><input type="hidden" name="ka" value="v">
 <input type="hidden" name="kt" value="v"> <input type="hidden" name="kh" value="1"> <input type="hidden" name="kj" value="r2">
 <input id="words" name="q" type="text" size="20" maxlength="255" onfocus="if( this.value==this.defaultValue ) this.value='';" value="Search" placeholder="Search"> <span>&nbsp;</span> <input id="submit" name="submit" type="submit" value="Search"></form>
-</div>
+</div></li></ul></div>
 	</header>

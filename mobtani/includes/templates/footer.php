@@ -1,8 +1,14 @@
 
-		<footer class = "container-fluid">
-	<style>p.class1{text-align: center;color: #BE2D0F;}
+		<footer class = "container-fluid" >
+	<style>
+
+  p.class1{text-align: center;color: #BE2D0F;}
 body {
   font-size: 20px;
+  border: 2px solid red;
+  border-radius: 5px;
+
+;
 }
 
 #myBtn {
@@ -45,4 +51,5 @@ function topFunction() {
      $('html, body').animate({scrollTop:0}, 'slow');
 }</script>
 <button onclick="topFunction()" id="myBtn" title="Go to top">بالا</button>
+
 		</footer>

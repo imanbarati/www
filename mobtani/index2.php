@@ -56,7 +56,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <p></p>
   </div>
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+<!-- <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
     <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <h3 class="w3-wide"><b> </b></h3>
@@ -81,7 +81,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <a href="#footer" class="w3-bar-item w3-button w3-padding">ارسال ایمیل</a> 
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'"></a> 
   <a href="#footer"  class="w3-bar-item w3-button w3-padding"></a>
-</nav>
+</nav> -->
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -102,8 +102,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <header class="w3-container w3-xlarge">
     <p class="w3-left"></p>
     <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
-      <i class="fa fa-search"></i>
+     <!--  <i class="fa fa-shopping-cart w3-margin-right"></i>
+      <i class="fa fa-search"></i> -->
     </p>
   </header>
 
@@ -226,13 +226,13 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <p><i class="fa fa-fw fa-cc-amex">سپه</i> </p>
         <p><i class="fa fa-fw fa-credit-card">آینده</i></p>
         <br>
-        <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
-        <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
-        <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
-        <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
-        <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
-      </div>
+<!--         <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+ -->        <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+<!--         <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+ --><!--         <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+ -->        <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+<!--         <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+ -->      </div>
     </div>
   </footer>
 
@@ -285,5 +285,10 @@ function w3_close() {
 <?php
 // get_footer();
 // get_sidebar();
+?><?php
+// <!--checkout-->
+
+get_sidebar();
+get_footer();
 ?>
 </html>

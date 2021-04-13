@@ -83,6 +83,18 @@ label {
   padding: 7px 0;
   font-size: 24px;
 }
+.button {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
 
 .btn {
   background-color: #4CAF50;
@@ -125,27 +137,40 @@ span.price {
 </style>
 </head>
 <body>
-
+<?php 
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+<?php
+echo "<h2>کد پیگیری:</h2>";
+?>
 <h2>آدرس را وارد کنید</h2>
 <p></p>
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
-      
+      <!-- <form action="/action_page.php"> -->
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+
         <div class="row">
           <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <h3>فاکتور سفارش</h3>
+            <label for="id"><i class=""></i>نام قطغه-کتاب/کالا/محصول</label>
+            <input type="text" id="id" name="id" placeholder="">
+            <label for="fname"><i class="fa fa-user"></i> نام خریدار</label>
+            <input type="text" id="fname" name="firstname" placeholder="">
+            <label for="email"><i class="fa fa-envelope"></i> ایمیل</label>
             <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
+            <label for="adr"><i class="fa fa-address-card-o"></i> آدرش</label>
+            <input type="text" id="adr" name="address" placeholder="خیابان">
+            <label for="city"><i class="fa fa-institution"></i> شهر</label>
+            <input type="text" id="city" name="city" placeholder="">
 
-            <div class="row">
+           <!--  <div class="row">
               <div class="col-50">
                 <label for="state">State</label>
                 <input type="text" id="state" name="state" placeholder="NY">
@@ -154,7 +179,7 @@ span.price {
                 <label for="zip">Zip</label>
                 <input type="text" id="zip" name="zip" placeholder="10001">
               </div>
-            </div>
+            </div> -->
           </div>
 
 <!--           <div class="col-50">
@@ -185,16 +210,16 @@ span.price {
           </div> -->
           
         </div>
-        <label>
+<!--         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Continue to checkout" class="btn">
+        </label> -->
+        <input type="submit" value="گرفتن کد رهگیری" class="button">
       </form>
     </div>
   </div>
-  <div class="col-25">
+ <!-- <div class="col-25">
     <div class="container">
-      <!-- <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <p><a href="#">Product 1</a> <span class="price">$15</span></p>
       <p><a href="#">Product 2</a> <span class="price">$5</span></p>
       <p><a href="#">Product 3</a> <span class="price">$8</span></p>
@@ -207,7 +232,16 @@ span.price {
 <?php
 // <!--checkout-->
 
+get_sidebar();
+get_footer();
 ?>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="https://kit.fontawesome.com/e36ff0bc6c.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
 
