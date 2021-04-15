@@ -42,6 +42,11 @@ li a:hover {
   <li><a href="/mobtani/public">درباره</a></li>
   <li><a href="/mobtani/public">عضوشوی</a></li>
 
+<div>
+<a href="https://telegram.me/share/url?url=%23&text=" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://twitter.com/intent/tweet?text=%20%2" target="_blank"><img src="https://static.addtoany.com/buttons/telegram.svg" width="32" height="32" style="background-color:royalblue"></a>
+</div>
+
 
   <li><div id="search">
 <form method="get" id="search-form" action="https://duckduckgo.com/" onsubmit="document.getElementById('words').value+=' (site:www.FreeBSD.org OR site:docs.FreeBSD.org OR site:lists.FreeBSD.org OR site:wiki.FreeBSD.org OR site:forums.FreeBSD.org)'" name="search-form"><input type="hidden" name="ka" value="v">
