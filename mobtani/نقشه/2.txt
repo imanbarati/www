@@ -1,0 +1,103 @@
+
+
+
+
+ basket.html
+│   bikini_holiday_iphone_person_selfie_smartphone_touch_touchscreen-1036183.jpg
+│   checkout.php
+│   help.php
+│   index2.html
+│   index2.php
+│   info.php
+│   iran_cities_v3.sql
+│   logo_anjooman_senfi1.png
+│   org.sepah.mobileotp_512x512.png
+│   setup.php
+│   __php__.php
+│
+├───.vscode
+│       c_cpp_properties.json
+│
+├───includes
+│   │   functions.php
+│   │   settings.php
+│   │
+│   ├───API
+│   │   │   AAA.php
+│   │   │   Alert.php
+│   │   │
+│   │   ├───DB
+│   │   │       Comment.php
+│   │   │       DB.php
+│   │   │       Ostan.php
+│   │   │       Product.php
+│   │   │       Rate.php
+│   │   │       Role.php
+│   │   │       Shahr.php
+│   │   │       Table.php
+│   │   │       User.php
+│   │   │
+│   │   └───validation
+│   │           Image.php
+│   │
+│   ├───templates
+│   │       comment.php
+│   │       footer.php
+│   │       header.php
+│   │       productCard.php
+│   │       rate.php
+│   │       sidebar.php
+│   │
+│   └───view
+├───logs
+├───null
+│       null__form.php
+│       null__success.php
+│
+├───public
+│   │   addProduct.php
+│   │   checkEmail.php
+│   │   checkout.php
+│   │   contact.php
+│   │   deleteProduct.php
+│   │   editProduct.php
+│   │   login.php
+│   │   logout.php
+│   │   productDetails.php
+│   │   profile.php
+│   │   rateProduct.php
+│   │   register.php
+│   │   showProducts.php
+│   │   track.php
+│   │   __php__.php
+│   │
+│   ├───assets
+│   │   ├───css
+│   │   │       main.css
+│   │   │
+│   │   ├───fonts
+│   │   ├───images
+│   │   │   │   120px-BankSepah_Logo.png
+│   │   │   │   deleverybook1.png
+│   │   │   │   favicon.ico
+│   │   │   │   FirstBanner1.jpg
+│   │   │   │   g132general book icondownload.png
+│   │   │   │   IMG-20210208-WA0054-247x296.jpg
+│   │   │   │   logo.png
+│   │   │   │   male-profile.jpg
+│   │   │   │   shahname.jpg
+│   │   │   │   ارسال-21.gif
+│   │   │   │   پیگیری-سفارشات-کتابلازم.png
+│   │   │   │
+│   │   │   └───uploads
+│   │   │       │   image.jpg
+│   │   │       │
+│   │   │       └───1
+│   │   │               1609416906.jpg
+│   │   │
+│   │   └───js
+│   │           main.js
+│   │
+│   └───inner
+│           __php__.php
+│
