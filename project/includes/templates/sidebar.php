@@ -1,4 +1,5 @@
- <?php
+ <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="23SmIyKf"></script><div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="messages" data-width="" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div><?php
 //ini_set('max_execution_time', 120);
 //require("twitter.class.php");
 
