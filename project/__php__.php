@@ -4,7 +4,7 @@
 	$assetPath	= $siteRoot . 'public/assets/';
 	$uploadPath	= $assetPath . 'images/uploads/';
 	
-	$uploadBrowserPath	= '/mobtani/public/assets/images/uploads/';
+	$uploadBrowserPath	= '/project/public/assets/images/uploads/';
 	
-	//$assetBrowserPath	= '/mobtani/public/assets/';
+	//$assetBrowserPath	= '/project/public/assets/';
 ?>

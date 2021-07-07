@@ -2,7 +2,7 @@
 	<header class = 'container-fluid'>
 		<section class = 'row'>
 			<section class = 'col-2' id = "logo">
-				<img src = '/mobtani/public/assets/images/logo.png'width="200" height="200">
+				<img src = '/project/public/assets/images/logo.png'width="200" height="200">
 		<!-- 	</section>
 			<section class = 'col'> -->
 <!-- 			<center>	<h1>فروش کتب دست دوم</h1>
@@ -36,11 +36,11 @@ li a:hover {
 </style>  <div dir="RTL">
 
 <ul>
-  <!-- <li><a href="/mobtani/public">خانه</a></li> -->
-  <!-- <li><a href="/mobtani/public">محصولات</a></li> -->
- <!--  <li><a href="/mobtani/public">تابلو اعلانات</a></li>
-  <li><a href="/mobtani/public">فروش</a></li> -->
-  <!-- <li><a href="/mobtani/public">اعضا</a></li> -->
+  <!-- <li><a href="/project/public">خانه</a></li> -->
+  <!-- <li><a href="/project/public">محصولات</a></li> -->
+ <!--  <li><a href="/project/public">تابلو اعلانات</a></li>
+  <li><a href="/project/public">فروش</a></li> -->
+  <!-- <li><a href="/project/public">اعضا</a></li> -->
 
 <div>
 <a href="https://telegram.me/share/url?url=%23&text=" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>

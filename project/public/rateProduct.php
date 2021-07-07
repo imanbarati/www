@@ -8,7 +8,7 @@ $aaa = new AAA();
 /*
 if( ! $aaa -> isAuthenticated() ){
 	$alert -> alerts('ابتدا وارد شوید!');
-	mobtani_redirect("login.php?redirect=productDetails.php?id={$Productid}");
+	project_redirect("login.php?redirect=productDetails.php?id={$Productid}");
 }*/
 $Productid = $_GET['id'];
 $Userid = $aaa -> uid();
@@ -32,6 +32,6 @@ if( $vote >= 1 && $vote <= 5 ){
 		$parameters['vote']			= $vote;
 		$rate -> save( $parameters );
 	}
-	mobtani_redirect("productDetails.php?id={$Productid}");
+	project_redirect("productDetails.php?id={$Productid}");
 }
 ?>

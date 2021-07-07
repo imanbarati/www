@@ -69,13 +69,13 @@ class DB{
 			$this -> dbc -> rollback(); // بازگشت به حالت قبل از تراکنش
 			
 			$alertMessage = 'عدم اجرای تراکنش!<section lang = "en">' . $this -> dbc -> error . '</section>';
-			mobtani_alerts($alertMessage);
+			project_alerts($alertMessage);
 		}
 		else{	
 			$this -> dbc -> commit(); // نهایی کردن تغییرات
 			
 			$alertMessage = 'تراکنش با موفقیت اجرا شد!';
-			mobtani_alerts($alertMessage, 'success');
+			project_alerts($alertMessage, 'success');
 		}
 	}
 	public function __destruct(){ // با حذف شیء، این تابع فراخوانی می‌شود

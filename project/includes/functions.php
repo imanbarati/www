@@ -26,13 +26,13 @@ function get_template_part( $slug, $name = '' ){
 	include "templates/{$slug}.php";
 }
 
-function mobtani_redirect( $address ){
+function project_redirect( $address ){
 	header("Location: {$address}");
 	// ... echo javascript for redirect in case of not working header
 	die();
 }
 
-function mobtani_truncate($string, $max = 100, $replacement = ' ...') {
+function project_truncate($string, $max = 100, $replacement = ' ...') {
 	if( strlen($string) > $max ){
 		$string = wordwrap($string, $max); // افزودن اینتر در مرز حداکثر
 		$string = substr($string, 0, strpos($string, "\n")); // تقطیع تا اینتر

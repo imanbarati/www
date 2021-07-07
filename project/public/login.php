@@ -5,7 +5,7 @@ include ($incPath . 'functions.php') ;
 
 $aaa = new AAA();
 if( $aaa -> isAuthenticated() )
-		mobtani_redirect('profile.php');
+		project_redirect('profile.php');
 		
 if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردازشش کن
 		
@@ -24,7 +24,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		$redirect = 'profile.php';
 		if( isset($_GET['redirect']) )
 			$redirect = $_GET['redirect'];
-		mobtani_redirect( $redirect );
+		project_redirect( $redirect );
 	}
 	else
 		$alert -> alerts('نام کاربری یا کلمه عبور اشتباه است!');

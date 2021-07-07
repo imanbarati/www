@@ -7,7 +7,7 @@ include ($incPath . 'functions.php') ;
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 <link rel = "stylesheet" href = "assets/css/main.css"></head><body><?php get_header();?><center>رهگیری محصولات</center><br/>
-<center> <img src="/mobtani/public/assets/images/deleverybook1.png"style="width:100px;height:100px;"></center><br/>
+<center> <img src="/project/public/assets/images/deleverybook1.png"style="width:100px;height:100px;"></center><br/>
   <p2>
 تمامی سفارشات از فردای روز ثبت سفارش اقدام می گردد و ظرف مدت 1 تا 2 روز کاری تهیه و سپس بسته به توجه به نحوه ارسال انتخاب شده از سوی مشتری فرستاده می شود. در صورتی که برای تهیه کتاب عجله دارید می توانید با تلفن های ما تماس بگیرید و با کارشناسان مجرب ما مشورت نمایید
 

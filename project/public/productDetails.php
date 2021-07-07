@@ -7,7 +7,7 @@ $aaa = new AAA();
 /*
 if( ! $aaa -> isAuthenticated() ){
 	$alert -> alerts('ابتدا وارد شوید!');
-	mobtani_redirect('login.php?redirect=addProduct.php');
+	project_redirect('login.php?redirect=addProduct.php');
 }*/
 
 $Productid = $_GET['id'];
@@ -22,7 +22,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	$parameters['Productid'] = $Productid;
 	$comment -> save( $parameters );
 	
-	mobtani_redirect('#comments');
+	project_redirect('#comments');
 	
 	unset($comment);
 }	

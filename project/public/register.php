@@ -5,11 +5,11 @@ include ($incPath . 'functions.php') ;
 
 $aaa = new AAA();
 if( $aaa -> isAuthenticated() )
-		mobtani_redirect('profile.php');
+		project_redirect('profile.php');
 	
 if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردازشش کن
 		
-	$imgSrc = '/mobtani/public/assets/images/male-profile.jpg';
+	$imgSrc = '/project/public/assets/images/male-profile.jpg';
 	
 	$db = new DB();
 	$user = new User( $db );
@@ -38,7 +38,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 		
 		$alert -> alerts("{$row['firstname']} {$row['lastname']} خوش آمدید!", 'success');
 		
-		mobtani_redirect('profile.php');
+		project_redirect('profile.php');
 	}
 	else
 		$alert -> alerts('کاربری با این ایمیل قبلا ثبت نام شده است!');

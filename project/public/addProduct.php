@@ -6,7 +6,7 @@ include ($incPath . 'functions.php') ;
 $aaa = new AAA();
 if( ! $aaa -> isAuthenticated() ){
 	$alert -> alerts('ابتدا وارد شوید!');
-	mobtani_redirect('login.php?redirect=addProduct.php');
+	project_redirect('login.php?redirect=addProduct.php');
 }
 // اگر کاربر حق دسترسی به این صفحه را ندارد به صفحه دیگری ریدایرکت شود
 
@@ -38,7 +38,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	unset($db);
 	// }
 	
-	//mobtani_redirect('showProducts.php');
+	//project_redirect('showProducts.php');
 	/*
 	// 2. ايجاد کوئري
 	$sql = "INSERT INTO Product (name, price, weekday, timeFrom, timeTo, imgSrc, description) 

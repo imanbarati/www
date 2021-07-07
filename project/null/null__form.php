@@ -8,7 +8,7 @@
 		<title>افزودن محصول</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		
-		<link rel = "stylesheet" href = "/mobtani/public/assets/css/main.css">
+		<link rel = "stylesheet" href = "/project/public/assets/css/main.css">
 	</head>
 	<body class = "container">
 		<h1>تماس با ما</h1>

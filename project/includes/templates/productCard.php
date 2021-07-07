@@ -14,7 +14,7 @@ echo "
 						<span class = 'font-weight-bold'>قیمت:</span> "
 						. number_format( $row['price'] ) . " تومان<br>
 						<span class = 'font-weight-bold'>توضیحات:</span> "
-						. mobtani_truncate( $row['description'] ) . "
+						. project_truncate( $row['description'] ) . "
 					</p>
 					<h5>زمان فروش</h5>
 					<p>

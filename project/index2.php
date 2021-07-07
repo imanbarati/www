@@ -10,7 +10,7 @@ get_header();
 <!DOCTYPE html>
 <html>
 <title>لندینگ</title>
-<!-- <link rel="shortcut icon" href="/mobtani/public/assets/images/favicon.ico" type="image/x-icon"/> -->
+<!-- <link rel="shortcut icon" href="/project/public/assets/images/favicon.ico" type="image/x-icon"/> -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -34,15 +34,15 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <a class="navbar-brand" href="#">کتب دست دوم</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/mobtani/public">خانه</a></li>
+        <li class="active"><a href="/project/public">خانه</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">تعرفه<span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <!--   <li><a href="/mobtani/public">رهگیری</a></li>
-            <li><a href="/mobtani/public">راهنما</a></li>
-            <li><a href="/mobtani/public">روال سفارش</a></li> -->
+          <!--   <li><a href="/project/public">رهگیری</a></li>
+            <li><a href="/project/public">راهنما</a></li>
+            <li><a href="/project/public">روال سفارش</a></li> -->
           </ul>
         </li>
-        <li><a href="/mobtani/public">ورود به صفحه محصولات فروشگاه</a></li>
+        <li><a href="/project/public">ورود به صفحه محصولات فروشگاه</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> ساخت حساب</a></li>
@@ -126,11 +126,11 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-row w3-grayscale">
     <div class="w3-col l3 s6">
       <div class="w3-container">
-        <img src="/mobtani/public/assets/images/shahname.jpg" style="width:100%">
+        <img src="/project/public/assets/images/shahname.jpg" style="width:100%">
         <p>شاهنامه<br><b>24.99</b></p>
       </div>
       <div class="w3-container">
-        <img src="/mobtani/public/assets/images/g132general book icondownload.png" style="width:100%"> 
+        <img src="/project/public/assets/images/g132general book icondownload.png" style="width:100%"> 
         <p>شیمی 2<br><b>19.99</b></p>
       </div>
     </div>
@@ -138,7 +138,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <div class="w3-col l3 s6">
       <div class="w3-container">
         <div class="w3-display-container">
-        <img src="/mobtani/public/assets/images/ارسال-21.gif" style="width:200%"> 
+        <img src="/project/public/assets/images/ارسال-21.gif" style="width:200%"> 
           <span class="w3-tag w3-display-topleft">جدید</span>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">خرید فوری <i class="fa fa-shopping-cart"></i></button>
@@ -147,19 +147,19 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <p><br><b></b></p>
       </div>
       <div class="w3-container">
-      <img src="/mobtani/public/assets/images/پیگیری-سفارشات-کتابلازم.png" style="width:200%"> 
+      <img src="/project/public/assets/images/پیگیری-سفارشات-کتابلازم.png" style="width:200%"> 
         <p><br><b></b></p>
       </div>
     </div>
 
     <div class="w3-col l3 s6">
       <div class="w3-container">
-        <!-- <img src="/mobtani/public/assets/images/FirstBanner1.jpg" style="width:100%"> -->
+        <!-- <img src="/project/public/assets/images/FirstBanner1.jpg" style="width:100%"> -->
         <p><br><b></b></p>
       </div>
       <div class="w3-container">
         <div class="w3-display-container">
-          <!-- <img src="/mobtani/public/assets/images/FirstBanner1.jpg" style="width:100%"> -->
+          <!-- <img src="/project/public/assets/images/FirstBanner1.jpg" style="width:100%"> -->
           <span class="w3-tag w3-display-topleft">فروش سریع</span>
           <div class="w3-display-middle w3-display-hover">
             <button class="w3-button w3-black">فوری <i class="fa fa-shopping-cart"></i></button>
@@ -201,7 +201,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
           <button type="submit" class="w3-button w3-block w3-black">Send</button>
-        </form>--> <img src="/mobtani/public/assets/images/FirstBanner1.jpg" style="width:200%">
+        </form>--> <img src="/project/public/assets/images/FirstBanner1.jpg" style="width:200%">
       </div> 
 
       <div class="w3-col s4">

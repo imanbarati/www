@@ -6,18 +6,18 @@ include ($incPath . 'functions.php') ;
 $aaa = new AAA();
 if( ! $aaa -> isAuthenticated() ){
 	$alert -> alerts('ابتدا وارد شوید!');
-	mobtani_redirect('login.php?redirect=editProduct.php');
+	project_redirect('login.php?redirect=editProduct.php');
 }
 // اگر کاربر حق دسترسی به این صفحه را ندارد به صفحه دیگری ریدایرکت شود
 if( ! $aaa -> can('Product', 'Edit') ){
 	$alert -> alerts('دسترسی غیر مجاز!');
-	mobtani_redirect('profile.php');
+	project_redirect('profile.php');
 }
 
 $db = new db();
 $product = new Product( $db );
 
-$imgSrc = '/mobtani/public/assets/images/uploads/image.jpg';
+$imgSrc = '/project/public/assets/images/uploads/image.jpg';
 $id = $_GET['id']; // دریافت شناسه آیتم از URL
 
 
@@ -38,7 +38,7 @@ if( isset( $_POST['submit'] ) ){ // اگر کاربر دکمه سابمیت را
 	
 	
 	
-	mobtani_redirect('showProducts.php');
+	project_redirect('showProducts.php');
 }
 //else // اگر کاربر میخواهد فرم ویرایش محصول را ببیند
 	$row = $product -> get( $id );

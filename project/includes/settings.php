@@ -3,8 +3,8 @@
 define( 'DBHOST', 'localhost' );
 define( 'DBUSER', 'root' );
 define( 'DBPASS', '' );
-define( 'DBNAME', 'mobtaniDB' );
-//define( 'DBNAME', 'mobtanitest' );
+define( 'DBNAME', 'projectDB' );
+//define( 'DBNAME', 'projecttest' );
 define( 'CHARSET', 'utf8mb4' );
 define( 'COLLATE', 'utf8mb4_general_ci' );
 

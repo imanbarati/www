@@ -33,7 +33,7 @@ if( isset( $_POST['submit'] ) ){ // اگر فرم قبلا پر شده پردا�
 	<body class = "container">
 		<h2>تماس با ما</h2>
 		<?php
-		$alerts = mobtani_alerts();
+		$alerts = project_alerts();
 		echo $alerts;
 		?>
 		<form action = "" method = "post">
