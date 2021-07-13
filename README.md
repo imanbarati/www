@@ -1,4 +1,12 @@
 # www project t version v1.4
+Notifications
+add buttons
+Tags
+Pagination
+test 
+list class object ide f2 
+Image Carousel	
+Modal Window (pop-up)	
 Docs and API versioning
 Docs.google.com
 Shop 2nd hand books
