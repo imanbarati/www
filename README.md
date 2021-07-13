@@ -19,3 +19,17 @@ Image Carousel
 Modal Window (pop-up)	
 
 #CRUD API fn
+#@font-face {
+  font-family: Sahel VF;
+  src: url('Sahel-VF.woff2') format('woff2');
+}
+
+.foo {
+  font-family: Sahel VF;
+  font-variation-settings: "wght" 600;
+}
+
+.bar {
+  font-family: Sahel VF;
+  font-variation-settings: "wght" 900;
+}
